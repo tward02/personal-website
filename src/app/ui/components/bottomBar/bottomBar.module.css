@@ -1,0 +1,14 @@
+.footer {
+    margin-top: 4rem;
+    padding: 2rem 4rem;
+    text-align: center;
+    border-top: 1px solid #eaeaea;
+}
+
+.socialLinks {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+}

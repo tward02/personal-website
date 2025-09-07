@@ -1,0 +1,14 @@
+.projectCard {
+    display: block;
+    padding: 1.5rem;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.projectCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
