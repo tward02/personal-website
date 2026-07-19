@@ -70,8 +70,18 @@
 
 .profilePic {
     flex-shrink: 0;
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
     border-radius: 50%;
     border: 1px solid var(--border);
+}
+
+@media (max-width: 720px) {
+    .profilePic {
+        width: 180px;
+        height: 180px;
+    }
 }
 
 .projects {

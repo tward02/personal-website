@@ -16,9 +16,23 @@ const CV = () => {
                 title={`${site.name} CV`}
             />
 
-            <a href={site.cvFile} download className={styles.downloadBtn}>
-                Download CV
-            </a>
+            <p className={styles.mobileFallback}>
+                The embedded preview isn&apos;t available on small screens.
+            </p>
+
+            <div className={styles.actions}>
+                <a
+                    href={site.cvFile}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.openBtn}
+                >
+                    Open CV
+                </a>
+                <a href={site.cvFile} download className={styles.downloadBtn}>
+                    Download CV
+                </a>
+            </div>
         </main>
     );
 };
