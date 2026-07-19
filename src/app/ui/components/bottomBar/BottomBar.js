@@ -1,19 +1,30 @@
-import {FaEnvelope, FaGithub, FaLinkedin} from "react-icons/fa";
-import classes from './bottomBar.module.css'
+import site from "@/data/site.json";
+import Icon from "@/app/ui/components/icons/Icons";
+import classes from "./bottomBar.module.css";
 
 const BottomBar = () => {
-
     return (
         <footer className={classes.footer}>
-            <p>© {new Date().getFullYear()} Tyler Ward. All Rights Reserved.</p>
-            <div className={classes.socialLinks}>
-                <a href="https://github.com/tward02" target="_blank" rel="noopener noreferrer"><FaGithub/></a>
-                <a href="https://www.linkedin.com/in/tward02" target="_blank"
-                   rel="noopener noreferrer"><FaLinkedin/></a>
-                <a href="mailto:tylerward1@btinternet.com"><FaEnvelope/></a>
+            <div className={classes.inner}>
+                <p className={classes.copyright}>
+                    © {new Date().getFullYear()} {site.name}
+                </p>
+                <div className={classes.socialLinks}>
+                    {site.socials.map((social) => (
+                        <a
+                            key={social.label}
+                            href={social.url}
+                            target={social.url.startsWith("mailto:") ? undefined : "_blank"}
+                            rel="noopener noreferrer"
+                            aria-label={social.label}
+                        >
+                            <Icon name={social.icon}/>
+                        </a>
+                    ))}
+                </div>
             </div>
         </footer>
-    )
-}
+    );
+};
 
 export default BottomBar;

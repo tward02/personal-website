@@ -1,113 +1,65 @@
 'use client';
 
-import {
-    AppBar,
-    Box,
-    Button,
-    IconButton,
-    Menu,
-    MenuItem,
-    Toolbar,
-    Typography
-} from "@mui/material";
-import MenuIcon from '@mui/icons-material/Menu';
-import React, {useState} from "react";
+import Link from "next/link";
+import {usePathname} from "next/navigation";
+import {useState} from "react";
+import site from "@/data/site.json";
 import classes from "./topBar.module.css";
 
 const pages = [
-    {title: 'Home', link: '/'},
-    {title: 'CV', link: '/cv'},
-    {title: 'Contact Me', link: '/contact'}
+    {title: "Home", link: "/"},
+    {title: "CV", link: "/cv"},
+    {title: "Contact", link: "/contact"},
 ];
 
 const TopBar = () => {
-    const [anchorElNav, setAnchorElNav] = useState(null);
+    const pathname = usePathname();
+    const [menuOpen, setMenuOpen] = useState(false);
 
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
+    const navLink = (page) => (
+        <Link
+            key={page.link}
+            href={page.link}
+            className={pathname === page.link ? classes.activeLink : classes.navLink}
+            aria-current={pathname === page.link ? "page" : undefined}
+            onClick={() => setMenuOpen(false)}
+        >
+            {page.title}
+        </Link>
+    );
 
     return (
-        <header>
-            <AppBar position="static">
-                <div className={classes.container}>
-                    <Toolbar disableGutters sx={{width: '100%', display: 'flex', alignItems: 'center'}}>
+        <header className={classes.header}>
+            <div className={classes.inner}>
+                <Link href="/" className={classes.brand} onClick={() => setMenuOpen(false)}>
+                    {site.name.toLowerCase().replace(" ", ".")}
+                </Link>
 
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="/"
-                            style={{
-                                marginRight: '2rem',
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.2rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            Tyler Ward
-                        </Typography>
+                <nav className={classes.desktopNav} aria-label="Main navigation">
+                    {pages.map(navLink)}
+                </nav>
 
-                        <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}, justifyContent: 'flex-end'}}>
-                            <IconButton
-                                size="large"
-                                aria-label="menu"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleOpenNavMenu}
-                                color="inherit"
-                            >
-                                <MenuIcon/>
-                            </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorElNav}
-                                anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
-                                keepMounted
-                                transformOrigin={{vertical: 'top', horizontal: 'left'}}
-                                open={Boolean(anchorElNav)}
-                                onClose={handleCloseNavMenu}
-                            >
-                                {pages.map((page) => (
-                                    <MenuItem key={page.title} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center">{page.title}</Typography>
-                                    </MenuItem>
-                                ))}
-                            </Menu>
-                        </Box>
+                <button
+                    type="button"
+                    className={classes.menuButton}
+                    aria-expanded={menuOpen}
+                    aria-label={menuOpen ? "Close menu" : "Open menu"}
+                    onClick={() => setMenuOpen((open) => !open)}
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                        {menuOpen
+                            ? <path d="M6 6l12 12M18 6L6 18"/>
+                            : <path d="M3 6h18M3 12h18M3 18h18"/>}
+                    </svg>
+                </button>
+            </div>
 
-                        <Box
-                            sx={{
-                                flexGrow: 1,
-                                display: {xs: 'none', md: 'flex'},
-                                justifyContent: 'flex-start',
-                            }}
-                        >
-                            {pages.map((page) => (
-                                <Button
-                                    key={page.title}
-                                    onClick={handleCloseNavMenu}
-                                    component="a"
-                                    href={page.link}
-                                    sx={{
-                                        my: 2,
-                                        color: 'white',
-                                        textAlign: 'center'
-                                    }}
-                                >
-                                    {page.title}
-                                </Button>
-                            ))}
-                        </Box>
-                    </Toolbar>
-                </div>
-            </AppBar>
+            {menuOpen && (
+                <nav className={classes.mobileNav} aria-label="Main navigation">
+                    {pages.map(navLink)}
+                </nav>
+            )}
         </header>
     );
 };

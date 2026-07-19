@@ -1,0 +1,51 @@
+{
+  "name": "Tyler Ward",
+  "role": "Software Engineer",
+  "bio": "Passionate software engineer specialising in modern web development, Java and API-driven applications. Now branching out into mobile development on both iOS and Android.",
+  "email": "jobs.tward@gmail.com",
+  "profileImage": "/profile.png",
+  "cvFile": "/CV.pdf",
+  "socials": [
+    {
+      "label": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/tward02"
+    },
+    {
+      "label": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/tward02"
+    },
+    {
+      "label": "Email",
+      "icon": "email",
+      "url": "mailto:jobs.tward@gmail.com"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Learn Access",
+      "description": "An interactive eLearning platform to teach developers how to implement accessible interfaces.",
+      "link": "https://github.com/tward02/learn-access",
+      "tags": ["React", "Accessibility"]
+    },
+    {
+      "title": "Chess",
+      "description": "A chess engine, with a series of powerful chess bots, with server and client applications across multiple platforms.",
+      "link": "https://github.com/tward02/chess-engine",
+      "tags": ["Kotlin", "Compose Multiplatform", "Neural Networks"]
+    },
+    {
+      "title": "News Feed App",
+      "description": "A one-page React app to view the latest news articles published around the world.",
+      "link": "https://github.com/tward02/news-feed-app",
+      "tags": ["React", "REST API"]
+    },
+    {
+      "title": "Game of Life Simulator",
+      "description": "A Java application to simulate Conway's Game of Life.",
+      "link": "https://github.com/tward02/Game-of-Life",
+      "tags": ["Java"]
+    }
+  ]
+}

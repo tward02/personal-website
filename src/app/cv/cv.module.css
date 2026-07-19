@@ -1,46 +1,35 @@
-.pageWrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
 .container {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    overflow: hidden;
-    font-family: 'Inter', sans-serif;
 }
 
 .title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
 }
 
 .pdfViewer {
-    flex: 1;
-    width: 80%;
-    max-height: calc(100vh - 200px);
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    margin-bottom: 1rem;
+    width: 100%;
+    height: min(70svh, 60rem);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1.25rem;
+    background: var(--surface);
 }
 
 .downloadBtn {
-    padding: 0.75rem 1.5rem;
-    background-color: #0070f3;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s;
+    align-self: flex-start;
+    padding: 0.65rem 1.4rem;
+    background: var(--accent);
+    color: var(--accent-contrast);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
 }
 
 .downloadBtn:hover {
-    background-color: #005bb5;
+    background: var(--accent-hover);
+    color: var(--accent-contrast);
 }

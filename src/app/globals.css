@@ -1,15 +1,103 @@
-/* globals.css */
-html, body {
-    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --text: #1d1c1a;
+    --text-muted: #66645f;
+    --border: #e4e2dc;
+    --accent: #2c6e49;
+    --accent-hover: #235839;
+    --accent-contrast: #ffffff;
+
+    --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+    --font-mono: var(--font-geist-mono), ui-monospace, "Cascadia Code", monospace;
+
+    --radius: 6px;
+    --content-width: 68rem;
+
+    color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #151513;
+        --surface: #1d1d1a;
+        --text: #e9e7e2;
+        --text-muted: #a3a19a;
+        --border: #2e2d29;
+        --accent: #6fbb92;
+        --accent-hover: #8acaa7;
+        --accent-contrast: #10130f;
+
+        color-scheme: dark;
+    }
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 4rem;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.75rem;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }
