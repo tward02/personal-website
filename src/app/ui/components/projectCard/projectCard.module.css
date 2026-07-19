@@ -1,0 +1,54 @@
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease;
+}
+
+.projectCard:hover {
+    border-color: var(--accent);
+    color: inherit;
+}
+
+.title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.projectCard:hover .title {
+    color: var(--accent);
+}
+
+.description {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+}
+
+.meta {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+}
+
+.viewLink {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: var(--accent);
+}

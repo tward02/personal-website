@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.pdfViewer {
+    width: 100%;
+    height: min(70svh, 60rem);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1.25rem;
+    background: var(--surface);
+}
+
+.downloadBtn {
+    align-self: flex-start;
+    padding: 0.65rem 1.4rem;
+    background: var(--accent);
+    color: var(--accent-contrast);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.downloadBtn:hover {
+    background: var(--accent-hover);
+    color: var(--accent-contrast);
+}

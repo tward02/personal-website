@@ -1,42 +1,103 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --text: #1d1c1a;
+    --text-muted: #66645f;
+    --border: #e4e2dc;
+    --accent: #2c6e49;
+    --accent-hover: #235839;
+    --accent-contrast: #ffffff;
+
+    --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+    --font-mono: var(--font-geist-mono), ui-monospace, "Cascadia Code", monospace;
+
+    --radius: 6px;
+    --content-width: 68rem;
+
+    color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --bg: #151513;
+        --surface: #1d1d1a;
+        --text: #e9e7e2;
+        --text-muted: #a3a19a;
+        --border: #2e2d29;
+        --accent: #6fbb92;
+        --accent-hover: #8acaa7;
+        --accent-contrast: #10130f;
+
+        color-scheme: dark;
+    }
 }
 
-html,
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+    margin: 0;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+main {
+    flex: 1;
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 4rem;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.75rem;
+}
+
+p {
+    margin: 0 0 1rem;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+a:hover {
+    color: var(--accent-hover);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }
